@@ -1,5 +1,7 @@
-package com.mongodb;
+package com.mongodb.ui;
 
+import com.mongodb.domain.BoardRepository;
+import com.mongodb.domain.Board;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,13 +17,13 @@ public class BoardController {
 
     @PostMapping("/board")
     public Board save(@RequestBody BoardDto dto) {
-        Board boardEntity = repository.save(new Board(dto.getTitle(), dto.getContent()));
+        Board boardEntity = repository.save(new Board(dto.getTitle(), dto.getContent(), dto.getAddresses()));
         return boardEntity;
     }
 
     @PutMapping("board/{id}")
     public Board update(@RequestBody BoardDto dto, @PathVariable String id) {
-        Board board = new Board(id ,dto.getTitle(), dto.getContent());
+        Board board = new Board(id ,dto.getTitle(), dto.getContent(), dto.getAddresses());
         return repository.save(board);
     }
 

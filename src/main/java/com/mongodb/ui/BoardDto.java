@@ -1,8 +1,13 @@
-package com.mongodb;
+package com.mongodb.ui;
+
+import com.mongodb.domain.Address;
+
+import java.util.Set;
 
 public class BoardDto {
     private String title;
     private String content;
+    private Set<Address> addresses;
 
     public String getTitle() {
         return title;
@@ -18,5 +23,13 @@ public class BoardDto {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
     }
 }
